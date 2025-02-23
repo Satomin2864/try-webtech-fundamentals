@@ -1,4 +1,4 @@
-module web_study
+module web_study/chapter_6
 
 go 1.23.6
 
