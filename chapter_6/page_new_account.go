@@ -1,6 +1,8 @@
 package main
 
-import "net/http"
+import (
+	"net/http"
+)
 
 type NewUserAccountPageData struct {
 	UserId       string
