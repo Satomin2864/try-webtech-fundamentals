@@ -9,14 +9,13 @@ function setup() {
     addEventListenerByQuery('input[type="text"].todo', "click", onClickTodoInput);
     addEventListenerByQuery('button.btn-cancel', "click", onClickCancelButton);
     addEventListenerByQuery('button.btn-save', "click", onClickSaveButton);
-
 }
 
 // 関数をイベントハンドラとして登録する
 // @param {string} 登録先要素を指定するクエリ
 // @param {string} イベント名
 // @param {function} イベントハンドラとして登録する関数
-function addEventListenerByQuery(query, eventName, callback){
+function addEventListenerByQuery(query, eventName, callback) {
     const elements = document.querySelectorAll(query);
     for (let i = 0; i < elements.length; i++) {
         elements[i].addEventListener(eventName, callback);
@@ -58,18 +57,17 @@ function enableTodoInput(todoInput) {
 // ToDo項目の入力欄を編集不可にする
 // save/cancelボタンを非表示にする
 // @param {HTMLInputElement} todo項目のinput要素
-function disableToDoInput(todoInput){
+function disableTodoInput(todoInput) {
     todoInput.readOnly = true;
 
-    // save/cancelボタンを非表示にする
+    // save/cancelボタンを非表示
     const todoEditorControl = getTodoEditorControl(todoInput);
     if (isNotNull(todoEditorControl)) {
         todoEditorControl.classList.add("hidden");
     } else {
-        console.error("TodoEditorControl not found.")
+        console.error("TodoEditorControl not found.");
     }
 }
-
 // todo項目に対応するsave/cancelボタンのコンテナ要素を取得する
 // @param {HTMLInputElement} todo項目のinput要素
 // @returns {HTMLElement} save/cancelボタンの親div要素、存在しない場合はnull
@@ -92,7 +90,7 @@ function onClickCancelButton(event){
 // todo項目の編集をキャンセルする
 // @param {HTMLInputElement} todo項目のinput要素
 function cancelToDoEdit(todoInput){
-    disableToDoInput(todoInput);
+    disableTodoInput(todoInput);
     // 編集要素を元に戻す
     todoInput.value = todoInput.dataset.originalValue;
     currentEditingTodo = null;
@@ -118,9 +116,9 @@ function onClickSaveButton(event){
 
     // Fetch APIを使ってサーバにリクエストを送信
     fetch("/edit", request)
-        .thne(()=>{
+        .then(()=>{
             // 編集が完了したらInput要素を編集不可にする
-            disableToDoInput(todoInput);
+            disableTodoInput(todoInput);
             currentEditingTodo = null;
         })
         .catch((error)=>{
