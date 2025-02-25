@@ -45,3 +45,6 @@ form#logout button[type="submit"] {
   font-family: "Lucida Console", "Courier New", monospace;
 }
 
+.hidden {
+  display: none;
+}

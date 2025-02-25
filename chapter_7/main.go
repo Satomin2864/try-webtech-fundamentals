@@ -42,6 +42,8 @@ func main() {
 
 	http.HandleFunc("/add", handleAdd)
 
+	http.HandleFunc("/edit", handleEdit)
+
 	http.HandleFunc("/favicon.ico", handleNotFound)
 
 	http.HandleFunc("/", handleRoot)

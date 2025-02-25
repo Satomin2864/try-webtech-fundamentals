@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>Tiny ToDo</title>
     <link rel="stylesheet" href="static/todo.css" />
+    <script defer src="static/todo.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
@@ -25,9 +26,13 @@
       <ul class="todo-list">
         {{range .ToDoList}}
         <li class="todo-item">
-          <div class="todo-item-left">
+          <div class="todo-item-container">
             <input type="checkbox" />
-            <span>{{.}}</span>
+            <input type="text" class="todo" id="{{.Id}}" value="{{.Todo}}" readonly />
+            <div class="todo-item-control hidden">
+              <button class="btn-save">save</button>
+              <button class="btn-cancel">cancel</button>
+            </div>
           </div>
         </li>
         {{end}}

@@ -17,6 +17,29 @@ ul.todo-list li.todo-item {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+ul.todo-list li.todo-item .todo-item-container {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+ul.todo-list li.todo-item .todo {
+  flex-grow: 1;
+  border: none;
+  font-size: 1rem;
+  padding: 4px 8px;
+  margin: 2px 8px 2px 4px;
+}
+
+ul.todo-list li.todo-item .todo:focus {
+  outline-color: #dddddd;
+}
+
+form {
+  display: flex;
+  margin-bottom: 20px;
+}
+
 form.new-todo {
   display: flex;
   margin-bottom: 20px;
@@ -25,7 +48,7 @@ form.new-todo {
 form.new-todo > input[type="text"] {
   flex-grow: 1;
   padding: 10px;
-  font-size: 16px;
+  font-size: 1rem;
   border: solid;
   border-color: #ddd;
   border-radius: 6px 0 0 6px;
@@ -41,9 +64,9 @@ form.new-todo > button[type="submit"] {
 }
 
 form.new-todo >:not(:first-child) {
-    margin-left: -1px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+  margin-left: -1px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 form.new-todo > :not(:last-child) {
@@ -58,7 +81,7 @@ form.new-todo >:not(:last-child):focus {
   border-color: #3f51b5;
 }
 
-form.new-todo button[type="submit"]:hover {
+button[type="submit"]:hover {
   background-color: #2f3a7d;
 }
 
@@ -137,4 +160,3 @@ main#login {
   margin: 1rem 0rem;
   padding: 0.5rem 1rem;
 }
-
